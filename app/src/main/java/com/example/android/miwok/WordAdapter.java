@@ -1,11 +1,14 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +16,8 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+
+import static android.os.Build.VERSION_CODES.M;
 
 /**
  * Created by Faßreiter on 26.12.2016.
@@ -29,7 +34,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Word currentWord = getItem(position);
+        final Word currentWord = getItem(position);
 
         View listItemView = convertView;
         if(listItemView == null) {
@@ -49,6 +54,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
         } else {
             iv.setVisibility(View.GONE);
         }
+
+
+
+
 
         // Set the theme color for the list item
         View textContainer = listItemView.findViewById(R.id.text_container);
